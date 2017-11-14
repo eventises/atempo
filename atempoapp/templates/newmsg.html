@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Atempo New message
+{% endblock %}
+
+{% block heading %}
+    Add new message
+{% endblock %}
+
+{% block body %}
+    <form action="{% url 'msg-save' %}" method="post">
+        {% csrf_token %}
+        <label for="description">Name</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="name">Email</label>
+        <input type="text" id="email" name="email"><br>
+        <label for="name">Message</label><br>
+        <textarea rows="60" cols="150" id="message" name="message"></textarea><br>
+        <input type="submit" name="submit" value="Save">
+    </form>
+{% endblock %}
