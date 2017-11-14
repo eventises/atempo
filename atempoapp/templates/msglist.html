@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <ul>
+    {% for msg in msg_list %}
+      <li>
+        {{ msg.name }}: {{ msg.message }} ({{ msg.email }})
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

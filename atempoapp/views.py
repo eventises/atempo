@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.views.generic import View
+from django.template.response import TemplateResponse
+from atempoapp.models import Atempo
 
-# Create your views here.
+class AtempoViewAll(View):
+	def get(self, request, *args, **kwargs):
+		context = {
+            'msg_list': Atempo.objects.all()
+        }
+		return TemplateResponse(request, 'msglist.html', context)
