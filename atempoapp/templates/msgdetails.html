@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <ul>
+      <li>
+        {{ details.name }}: {{ details.message }} ({{ details.email }})
+      </li>
+  </ul>
+<a href="{% url 'msg-list' %}">Main Page</a> - <a href="{% url 'msg-new' %}">Create new one</a> - <a href="{% url 'msg-remove' details.id %}">Delete</a>
+{% endblock %}

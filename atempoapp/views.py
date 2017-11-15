@@ -20,3 +20,15 @@ class AtempoSave(View):
 		email = request.POST['email']
 		Atempo.objects.create(name=name,message=message,email=email)
 		return HttpResponseRedirect('/')
+class AtempoDetails(View):
+	def get(self, request, *args, **kwargs):
+		messager = Atempo.objects.get(id=kwargs['message_id'])
+		context = {
+			'details': Atempo.objects.get(id=kwargs['message_id'])
+		}
+		return TemplateResponse(request, 'msgdetails.html', context)
+
+class AtempoRemove(View):
+	def get(self, request, *args, **kwargs):
+		Atempo.objects.get(id=kwargs['message_id']).delete()
+		return HttpResponseRedirect('/')

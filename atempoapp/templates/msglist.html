@@ -5,6 +5,7 @@
     {% for msg in msg_list %}
       <li>
         {{ msg.name }}: {{ msg.message }} ({{ msg.email }})
+        <a href="{% url 'msg-details' msg.id %}">Details</a>
       </li>
     {% endfor %}
   </ul>
